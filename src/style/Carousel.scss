@@ -5,40 +5,60 @@
     align-items: center;
 
     .carousel {
-        position: relative;
-        height: 415px;
+      position: relative;
+      height: 415px;
+      width: 100%;
+    
+      .img-carousel {
         width: 100%;
-    
-        .img-carousel {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-    
-          .btn-carousel-container {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-        
-            button {
-                background: transparent;
-                border: none;
-                cursor: pointer;
-                padding: 0;
-            }
-          }
-
-          .carousel-counter{
-            position: absolute;
-            bottom: 1%;
-            transform: translateY(-50%);
-            display: flex;
-            width: 100%;
-            justify-content: center;
-            color: white;
-          }
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
       }
+    
+      .btn-carousel-container {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        
+        button {
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          padding: 0;
+        }
+      }
+
+      .carousel-counter{
+        position: absolute;
+        bottom: 1%;
+        transform: translateY(-50%);
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        color: white;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+
+      .carousel {
+        height: 235px;
+
+        .btn-carousel-container {
+
+          .img-btn-carousel {
+            width: 24px;
+            height: 24px;
+          }
+        }
+
+        .carousel-counter {
+          display: none;
+        }
+      }
+    }
 }

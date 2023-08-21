@@ -1,26 +1,49 @@
-
-
-div{
+.error {
     font-family: 'Montserrat', sans-serif;
 
-    .error{
+    .error-content {
         display: flex;
         flex-direction: column;
         color: #FF6060;
         text-align: center;
-        gap: 150px;
+        align-items: center; 
+        gap: 100px;
+        margin-top: 70px;
     
-        span{
+        span {
+            width: 100%;
+            max-width: 597px;
             margin: 0;
-            font-size: 597px;
+            font-size: 288px;
             font-weight: bold;
         }
-        p{
+        p {
             font-size: 36px;
         }
-        .redirect{
+        .redirect {
             color: inherit;
             font-size: 18px;
+            margin: 50px 0 100px 0;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+
+        .error-content {
+        
+            span {
+                width: 100%;
+                max-width: 198px;
+                font-size: 96px;
+            }
+
+            p {
+                font-size: 18px;
+            }
+
+            .redirect {
+                font-size: 14px;
+            }
         }
     }
 }

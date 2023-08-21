@@ -22,8 +22,12 @@ const Carousel = ({ img }) => {
       <div className='carousel'>
         <img src={img[currentImgIndex]} alt={`Img ${currentImageIndex}/${img.length}`} className='img-carousel' />
         <div className='btn-carousel-container'>
-          <button onClick={previousImage} className='btn-carousel-left'><img src={arrowLeft} alt='Back' className='img-btn-carousel' /></button>
-          <button onClick={nextImage} className='btn-carousel-right'><img src={arrowRight} alt='Forward' className='img-btn-carousel' /></button>
+          <button onClick={previousImage} className='btn-carousel-left'>
+            <img src={arrowLeft} alt='Back' className='img-btn-carousel' />
+          </button>
+          <button onClick={nextImage} className='btn-carousel-right'>
+            <img src={arrowRight} alt='Forward' className='img-btn-carousel' />
+          </button>
         </div>
         <div className='carousel-counter'>
           <span>{currentImageIndex}/{img.length}</span>

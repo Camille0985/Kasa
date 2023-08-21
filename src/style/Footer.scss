@@ -8,9 +8,25 @@
     align-items: center;
     gap: 50px;
     justify-content: center;
+    text-align: center;
 
     img{
         width: 122px;
         height: 39px;
+    }
+
+    span {
+        font-size: 24px;
+        width: 100%;
+        white-space: normal;
+    }
+
+    @media screen and (max-width: 768px) {
+        gap: 20px;
+
+        span {
+            width: 120px;
+            font-size: 12px;
+        }
     }
 }

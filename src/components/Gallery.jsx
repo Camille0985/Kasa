@@ -13,7 +13,7 @@ function Gallery() {
   return (
     <section className="cards">
       {data.map((card) => (
-        <div className="card" key={card.id} onClick={() => handleCardClick(card.id)}>
+        <div className="card-gallery" key={card.id} onClick={() => handleCardClick(card.id)}>
           <figure>
             <img src={card.cover} alt={card.title} />
             <figcaption>{card.title}</figcaption>

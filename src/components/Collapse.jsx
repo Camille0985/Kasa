@@ -1,58 +1,33 @@
-import React, { useState, useRef, useEffect, useCallback } from 'react';
-import '../style/Collapse.scss'
+import React, { useState } from 'react';
+import '../style/Collapse.scss';
 import ArrowTop from '../assets/arrow-up.png';
-import ArrowBot from '../assets/arrow-back.png';
 
 function Collapse({ title, values }) {
-    const [isCollapsed, setIsCollapsed] = useState(true);
-    const [ulHeight, setUlHeight] = useState(0);
-    const ulRef = useRef(null);
-  
-    const toggleCollapse = () => {
-      setIsCollapsed(!isCollapsed);
-    };
-  
-    const getHeight = useCallback(() => {
-      return isCollapsed ? 0 : ulRef.current.scrollHeight;
-    }, [isCollapsed]);
-  
-    useEffect(() => {
-      setUlHeight(0);
-    }, []);
-  
-    useEffect(() => {
-      const ulHeight = getHeight();
-      setUlHeight(ulHeight);
-    }, [getHeight]);
-  
-    const handleTransitionEnd = () => {
-      setUlHeight(isCollapsed ? 0 : ulRef.current.scrollHeight);
-    };
-  
-    return (
-      <div className="collapse">
-        <div>
-          <div onClick={toggleCollapse}>
-            <div className="title-collapse">{title}</div>
-            <img src={isCollapsed ? ArrowBot : ArrowTop} alt="Arrow" className="arrow-img" />
-          </div>
-          <ul
-            className={`slide-down ${isCollapsed ? 'collapsed' : ''}`}
-            ref={ulRef}
-            style={{ maxHeight: ulHeight }}
-            onTransitionEnd={handleTransitionEnd}
-          >
-            {Array.isArray(values) ? (
-              values.map((value, i) => (
-                <li key={i}>{value}</li>
-              ))
-            ) : (
-              <p>{values}</p>
-            )}
-          </ul>
+  const [isCollapsed, setIsCollapsed] = useState(true);
+
+  const toggleCollapse = () => {
+    setIsCollapsed(!isCollapsed);
+  };
+
+  return (
+    <div className='collapse-container'>
+      <div className={`collapse ${isCollapsed ? 'collapsed' : 'expanded'}`}>
+        <div className='collapse-title'>
+          <h4 className="title-collapse">{title}</h4>
+          <img src={ArrowTop} alt="Arrow" className={`arrow-img ${isCollapsed ? 'up' : 'down'}`} onClick={toggleCollapse}/>
+        </div>
+        <div className={`collapse-content ${isCollapsed ? 'closed' : 'open'} ${isCollapsed ? '' : 'auto-height'}`}>
+          {typeof values === 'string' ? (
+            <p>{values}</p>
+          ) : (
+            values.map((i, index) => (
+              <p className='li-equipments' key={index}>{i}</p>
+            ))
+          )}
         </div>
       </div>
-    );
-}  
+    </div>
+  );
+}
 
 export default Collapse;

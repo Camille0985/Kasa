@@ -12,26 +12,23 @@ code {
     monospace;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+}
+
 #main {
-  margin: 0 5%;
+  width: 100%;
+  max-width: 77.5em;
+  box-sizing: border-box;
+  padding: 20px;
 }
 
-@media screen and (max-width: 768px) {
-  #main{
-    margin: 0;
-  }
-}
-
-@media screen and (max-width: 455px) {
-
-  header{
-    nav{
-      font-size: 12px;
-    }
-  }
-  .banner-container{
-      .title{
-        font-size: 24px;
-      }
+@media (max-width: 992px) {
+  #main {
+    max-width: 950px;
   }
 }
